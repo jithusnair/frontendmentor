@@ -1,0 +1,153 @@
+:root {
+  --primary-dark-blue: hsl(233, 47%, 7%); 
+  --primary-desaturated-blue: hsl(244, 38%, 16%); 
+  --primary-soft-violet: hsl(277, 64%, 61%);
+
+  --neutral-main: hsl(0, 0%, 100%);
+  --neutral-main-para: hsla(0, 0%, 100%, 0.75);
+  --neutral-stat: hsla(0, 0%, 100%, 0.6);
+  font-size: 15px;
+}
+
+body {
+  background-color: var(--primary-dark-blue);
+  margin: 0;
+}
+
+main {
+  padding: 70px 20px;
+}
+
+section {
+  display: grid;
+  row-gap: 5px;
+  grid-template-areas: 
+  "banner"
+  "heading"
+  "body"
+  "stats"
+  "stats"
+  "stats";
+  background-color: var(--primary-desaturated-blue);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#banner {
+  grid-area: banner;
+}
+
+img {
+  /* 
+    display:block is given to avoid extra spacing
+    REF => https://stackoverflow.com/questions/1079002/why-have-my-images-got-extra-spacing 
+  */
+  width: 100%;
+  display: block;
+  filter: opacity(0.5);
+}
+
+h1 {
+  font-family: Inter, sans-serif;
+  color: var(--neutral-main);
+  text-align: center;
+  font-size: 2rem;
+  grid-area: heading;
+  margin: 20px 20px 10px 20px;
+}
+
+.mainPara {
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  color: var(--neutral-main-para);
+  text-align: center;
+  grid-area: body;
+  margin: 10px 20px 20px 20px;
+  line-height: 1.4;
+}
+
+.statContainer {
+  grid-area: stats;
+}
+
+.stats {
+  font-family: Inter, sans-serif;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 5px;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--neutral-main);
+  margin: 0;
+}
+
+.stat-label {
+  color: var(--neutral-stat);
+  font-family: "Lexend Deca", sans-serif;
+  text-transform: uppercase;
+  font-size: .75rem;
+  letter-spacing: 1px;
+}
+
+span {
+  color: var(--primary-soft-violet);
+}
+
+@media only screen and (min-width: 1000px) {
+  body {
+    height: 100%;
+  }
+
+  main {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    padding: unset;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 540px 540px;
+    grid-template-rows: 1fr max-content 1fr;
+    row-gap: 15px;
+    grid-template-areas: 
+    "heading banner"
+    "body banner "
+    "stats banner";
+    max-height: max-content;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    text-align: left;
+    margin-left: 60px;
+    margin-right: 100px;
+    align-self: end;
+  }
+
+  .mainPara,
+  .statContainer {
+    margin-left: 60px;
+    margin-right: 130px;
+  }
+
+  .mainPara {
+    line-height: 1.8;
+    align-self: start;
+    text-align: left;
+  }
+
+  .statContainer {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+  }
+
+  .stats {
+    text-align: start;
+  }
+}
