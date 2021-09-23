@@ -9,8 +9,7 @@ body {
   background-image: url('./images/pattern-background-mobile.svg');
   background-repeat: no-repeat;
   background-color: hsl(225, 100%, 94%);
-  background-position: center;
-  background-size: cover;
+  background-size: contain;
   width: 100%;
   min-height: 100vh;
   margin: 0;
@@ -35,22 +34,23 @@ body {
 
 .text {
   display: grid;
-  grid-template-rows: 1fr 3fr 3fr 2fr 2fr;
+  grid-template-rows: max-content max-content 1fr 1fr;
   align-items: center;
-  row-gap: 5px;
-  padding: 25px 30px;
+  row-gap: 10px;
+  padding: 30px;
 }
 
-h2, p {
+h1, p {
   margin: 0;
   font-family: 'Red Hat Display', sans-serif;
 }
 
-h2, .orderSummary {
+h1, .orderSummary {
   text-align: center;
 }
 
-h2 {
+h1 {
+  font-size: 25px;
   font-weight: 900;
   color: hsl(223, 47%, 23%);
 }
@@ -111,6 +111,11 @@ a:hover {
   color: hsl(224, 23%, 55%);
 }
 
+.btn {
+  display: grid;
+  row-gap: 7px;
+}
+
 .proceed {
   border: none;
   outline: none;
@@ -162,12 +167,12 @@ a:hover {
   }
 
   .text {
-    grid-template-rows: max-content 3fr 3fr 2fr 2fr;
-    padding: 25px 50px;
-    row-gap: 15px;
+    /* grid-template-rows: max-content max-content 3fr 2fr 2fr; */
+    padding: 35px 50px;
+    row-gap: 25px;
   }
 
-  h2 {
+  h1 {
     font-size: 30px;
   }
 
@@ -190,6 +195,10 @@ a:hover {
 
   a {
     font-size: 16px;
+  }
+
+  .btn {
+    row-gap: 10px;
   }
 
   .proceed, .cancel {
